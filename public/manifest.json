@@ -1,0 +1,15 @@
+{
+  "short_name": "Victor Fernandez",
+  "name": "Victor Fernandez Web Developer",
+  "icons": [
+    {
+      "src": "vicdevlogo.png",
+      "type": "image/png",
+      "sizes": "231x231"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#040724",
+  "background_color": "#ffffff"
+}

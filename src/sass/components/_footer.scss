@@ -1,0 +1,118 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    align-items: center;
+    font-size: 2rem;
+    color: $white;
+    padding: 3rem 0 6rem;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
+
+    &-logo {
+        @extend .landing-top-logo;
+
+        @include respond(phone) {
+            display: none;
+        }
+    }
+
+    &-contact {
+        width: 33%;
+        text-align: center;
+        font-size: 2.8rem;
+
+        @include respond(phone) {
+            width: 100%;
+        }
+    }
+
+    & a {
+        color: #0077b5;
+        padding: 3rem 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-links {
+        display: flex;
+        width: 33%;
+        justify-content: center;
+        align-items: center;
+
+        @include respond(phone) {
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        & > * {
+            font-size: 4rem;
+            transition: all 0.2s ease-out;
+            padding: 1rem;
+        }
+
+        &_resume {
+            &,
+            &:link,
+            &:visited {
+                font-size: 3rem;
+            }
+        }
+
+        &_linkedin {
+            &,
+            &:link,
+            &:visited {
+                color: #ddd;
+                margin-right: 2.5rem;
+
+                @include respond(phone) {
+                    margin-right: 2rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    color: #0083ca;
+                }
+            }
+        }
+
+        &_github {
+            &,
+            &:link,
+            &:visited {
+                color: #ddd;
+                margin-right: 2.5rem;
+
+                @include respond(phone) {
+                    margin-right: 2rem;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    color: #fff;
+                }
+            }
+        }
+        &_email {
+            &,
+            &:link,
+            &:visited {
+                color: #ddd;
+
+                @include respond(phone) {
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
