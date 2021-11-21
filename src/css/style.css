@@ -302,7 +302,8 @@ body::-webkit-scrollbar-thumb {
           background-color: #dcdcdc; }
         @media only screen and (max-width: 44em) {
           .landing-heading-button, .landing-heading-button:link, .landing-heading-button:visited {
-            margin: 20% 0 0; } }
+            margin: 20% 0 0;
+            font-size: 2.6rem; } }
 
 .section-one {
   height: 50vh;

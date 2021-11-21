@@ -91,7 +91,7 @@ export const Navigation = () => {
                             width: "100%",
                         }}
                     >
-                        <FontAwesomeIcon icon={faInstagram} />
+                        <FontAwesomeIcon size="xs" icon={faInstagram} />
                         <Typography
                             sx={{
                                 fontSize: "1.6rem",
@@ -122,7 +122,7 @@ export const Navigation = () => {
                             width: "100%",
                         }}
                     >
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <FontAwesomeIcon size="xs" icon={faEnvelope} />
                         <Typography
                             sx={{
                                 fontSize: "1.6rem",
@@ -153,7 +153,7 @@ export const Navigation = () => {
                             width: "100%",
                         }}
                     >
-                        <FontAwesomeIcon icon={faFile} />
+                        <FontAwesomeIcon size="xs" icon={faFile} />
                         <Typography
                             sx={{
                                 fontSize: "1.6rem",

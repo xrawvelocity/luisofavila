@@ -302,7 +302,8 @@ body::-webkit-scrollbar-thumb {
           background-color: #dcdcdc; }
         @media only screen and (max-width: 44em) {
           .landing-heading-button, .landing-heading-button:link, .landing-heading-button:visited {
-            margin: 20% 0 0; } }
+            margin: 20% 0 0;
+            font-size: 2.6rem; } }
 
 .section-one {
   height: 50vh;
@@ -819,15 +820,6 @@ body::-webkit-scrollbar-thumb {
         .footer-links_linkedin, .footer-links_linkedin:link, .footer-links_linkedin:visited {
           margin-right: 2rem; } }
       .footer-links_linkedin:hover, .footer-links_linkedin:link:hover, .footer-links_linkedin:visited:hover {
-        cursor: pointer;
-        color: #fff; }
-    .footer-links_github, .footer-links_github:link, .footer-links_github:visited {
-      color: #ddd;
-      margin-right: 2.5rem; }
-      @media only screen and (max-width: 44em) {
-        .footer-links_github, .footer-links_github:link, .footer-links_github:visited {
-          margin-right: 2rem; } }
-      .footer-links_github:hover, .footer-links_github:link:hover, .footer-links_github:visited:hover {
         cursor: pointer;
         color: #fff; }
     .footer-links_email, .footer-links_email:link, .footer-links_email:visited {
