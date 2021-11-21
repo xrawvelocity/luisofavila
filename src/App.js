@@ -10,8 +10,8 @@ const App = () => {
         <main id="top" className="landing">
             <Navigation />
             <Home />
-            <Work />
             <About />
+            <Work />
             <Contact />
         </main>
     );

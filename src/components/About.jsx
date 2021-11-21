@@ -1,100 +1,87 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import moment from "moment";
 import React, { Component } from "react";
 import Flex from "./Flex";
 
-export default class About extends Component {
-    showSkills = (skills) => {
-        return skills.map((skill) => {
-            return (
-                <div className="about-skills-list-each">
-                    <div
-                        className={`about-skills-list-each-image about-skills-list-each-image-${skill}`}
-                    ></div>
-                    <div className="about-skills-list-each-name">
-                        {skill.charAt(0).toUpperCase() + skill.slice(1)}
-                    </div>
-                </div>
-            );
-        });
-    };
-    render() {
-        return (
-            <section id="about" className="about">
-                <h2
-                    className="about-story-title"
-                    style={{
-                        marginTop: "50px",
-                        width: "100%",
-                        textAlign: "center",
-                        color: "#000 !important",
+const About = () => {
+    let age = moment().diff("1996-08-09", "years");
+
+    return (
+        <section id="about" className="about">
+            <h2
+                className="about-story-title"
+                style={{
+                    width: "100%",
+                    textAlign: "center",
+                    color: "#000 !important",
+                }}
+            >
+                About
+            </h2>
+            <Flex
+                sx={{
+                    flexDirection: { xs: "column", md: "row" },
+                    px: "10%",
+                    alignItems: { xs: "flex-start", md: "center" },
+                    justifyContent: {
+                        xs: "flex-start",
+                        md: "center",
+                    },
+                }}
+            >
+                <Box
+                    sx={{
+                        mr: { xs: "0", md: "5rem" },
+                        height: { xs: "200px", md: "400px" },
+                        width: { xs: "100%", md: "600px" },
+                        mb: { xs: "5rem", md: "0" },
                     }}
                 >
-                    About
-                </h2>
+                    <div className="about-image" />
+                </Box>
                 <Flex
+                    className="about-story-paragraph"
                     sx={{
-                        flexDirection: { xs: "column", md: "row" },
-                        px: "10%",
-                        alignItems: { xs: "flex-start", md: "center" },
-                        justifyContent: {
-                            xs: "flex-start",
-                            md: "center",
+                        flexDirection: "column",
+                        alignItems: { xs: "center", md: "flex-start" },
+                        width: { xs: "100%", md: "40%" },
+                        ml: { xs: "0", md: "5rem" },
+                        "& > *": {
+                            fontSize: {
+                                xs: "20px !important",
+                                md: "24px !important",
+                            },
                         },
                     }}
                 >
-                    <Typography
-                        className="about-story-paragraph"
-                        sx={{
-                            width: { xs: "100%", md: "40%" },
-                            fontSize: { xs: "15px", md: "24px" },
-                            mr: { xs: "0", md: "3rem" },
-                        }}
-                    >
-                        Self taught web developer since June 2019. Attended the
-                        Ironhack Miami Coding Bootcamp from January 2020 to
-                        March 2020. Working as a Front End Developer for a
-                        payment gateway company since November 2020.
+                    <Typography sx={{ mb: { xs: "5rem", md: "2rem" } }}>
+                        I am an actor born in Cuba, but raised in Miami. Making
+                        the audience think and question the human condition
+                        through story telling is what I'm most passionate about,
+                        especially through the lenses of complex layered
+                        characters. I'm currently a senior at FIU and I've been
+                        acting since High School (2013).
                     </Typography>
-
-                    <Box
-                        sx={{
-                            width: { xs: "100%", md: "40%" },
-                            height: { xs: "200px", md: "375px" },
-                            ml: { xs: "0", md: "3rem" },
-                            mt: { xs: "5rem", md: "0" },
-                        }}
-                    >
-                        <iframe
-                            className="youtube-video"
-                            title="Web Dev Journey"
-                            src="https://www.youtube.com/embed/vZATCcCbpSw"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                        ></iframe>
-                    </Box>
+                    <Typography>
+                        <b>Age:</b> {age}
+                    </Typography>
+                    <Typography>
+                        <b>Hair:</b> Black
+                    </Typography>
+                    <Typography>
+                        <b>Eyes:</b> Dark Brown
+                    </Typography>
+                    <Typography>
+                        <b>Weight:</b> 125 lbs
+                    </Typography>
+                    <Typography>
+                        <b>Height:</b> 5'3"
+                    </Typography>
                 </Flex>
-                <div className="about-picture"></div>
-                <div className="about-skills">
-                    <h2 className="about-skills-title">Skills</h2>
-                    <div className="about-skills-list">
-                        {this.showSkills([
-                            "HTML",
-                            "CSS",
-                            "SASS",
-                            "tailwindCSS",
-                            "javascript",
-                            "reactJS",
-                            "redux",
-                            "materialUI",
-                            "mongoDB",
-                            "firebase",
-                            "nodeJS",
-                            "expressJS",
-                        ])}
-                    </div>
-                </div>
-            </section>
-        );
-    }
-}
+            </Flex>
+        </section>
+    );
+};
+
+export default About;

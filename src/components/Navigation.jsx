@@ -1,55 +1,65 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faFile } from "@fortawesome/free-solid-svg-icons";
 import { Box } from "@mui/system";
+import { Tooltip, Typography } from "@mui/material";
+import Flex from "./Flex";
 
 export const Navigation = () => {
     return (
         <>
             <nav className="landing-top">
                 <a href="#top" className="landing-top-logo ">
-                    VD
+                    Luis Avila
                 </a>
                 <div className="landing-top-nav">
-                    <a
-                        className="landing-top-nav-link landing-top-nav-link_work"
-                        href="#work"
-                    >
-                        Work
-                    </a>
                     <a className="landing-top-nav-link" href="#about">
                         About
+                    </a>
+                    <a className="landing-top-nav-link" href="#work">
+                        Work
                     </a>
                     <a className="landing-top-nav-link" href="#contact">
                         Contact
                     </a>
                 </div>
-                <Box sx={{ display: { xs: "none", md: "inline" } }}>
-                    <a
-                        href="https://linkedin.com/in/victor--fernandez"
-                        className="footer-links_linkedin"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faLinkedin} />
-                    </a>
-                    <a
-                        href="https://github.com/xrawvelocity"
-                        className="footer-links_github"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faGithub} />
-                    </a>
-                    <a
-                        href="mailto:fernandezvictordev@gmail.com"
-                        className="footer-links_email"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faEnvelope} />
-                    </a>
+                <Box
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        height: "100%",
+                        alignItems: "center",
+                    }}
+                >
+                    <Tooltip placement="bottom" arrow title="Visit Instagram">
+                        <a
+                            href="https://www.instagram.com/luisofavila/?hl=en"
+                            className="footer-links_linkedin"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FontAwesomeIcon size="25px" icon={faInstagram} />
+                        </a>
+                    </Tooltip>
+                    <Tooltip placement="bottom" arrow title="Send Email">
+                        <a
+                            href="mailto:luisfourfour@gmail.com"
+                            className="footer-links_email"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FontAwesomeIcon size="25px" icon={faEnvelope} />
+                        </a>
+                    </Tooltip>
+                    <Tooltip placement="bottom" arrow title="Download Resume">
+                        <a
+                            href="./files/LuisAvilaResume.pdf"
+                            className="footer-links_email"
+                            download
+                        >
+                            <FontAwesomeIcon size="15px" icon={faFile} />
+                        </a>
+                    </Tooltip>
                 </Box>
             </nav>
             {/* mobile social links */}
@@ -68,23 +78,30 @@ export const Navigation = () => {
                         color: "#ddd",
                         margin: "1rem 0",
                         fontSize: "4rem",
+                        textDecoration: "none",
                     }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <FontAwesomeIcon icon={faLinkedin} />
-                </a>
-                <a
-                    href="https://github.com/xrawvelocity"
-                    style={{
-                        color: "#ddd",
-                        margin: "1rem 0",
-                        fontSize: "4rem",
-                    }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FontAwesomeIcon icon={faGithub} />
+                    <Flex
+                        sx={{
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faInstagram} />
+                        <Typography
+                            sx={{
+                                fontSize: "1.6rem",
+                                fontWeight: "600",
+                                mt: "1.5rem",
+                            }}
+                        >
+                            Instagram
+                        </Typography>
+                    </Flex>
                 </a>
                 <a
                     href="mailto:fernandezvictordev@gmail.com"
@@ -92,11 +109,61 @@ export const Navigation = () => {
                         color: "#ddd",
                         margin: "1rem 0",
                         fontSize: "4rem",
+                        textDecoration: "none",
                     }}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <FontAwesomeIcon icon={faEnvelope} />
+                    <Flex
+                        sx={{
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faEnvelope} />
+                        <Typography
+                            sx={{
+                                fontSize: "1.6rem",
+                                fontWeight: "600",
+                                mt: "1.5rem",
+                            }}
+                        >
+                            Email
+                        </Typography>
+                    </Flex>
+                </a>
+                <a
+                    href="https://github.com/xrawvelocity"
+                    style={{
+                        color: "#ddd",
+                        margin: "1rem 0",
+                        fontSize: "4rem",
+                        textDecoration: "none",
+                    }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Flex
+                        sx={{
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faFile} />
+                        <Typography
+                            sx={{
+                                fontSize: "1.6rem",
+                                fontWeight: "600",
+                                mt: "1.5rem",
+                            }}
+                        >
+                            Resume
+                        </Typography>
+                    </Flex>
                 </a>
             </Box>
         </>

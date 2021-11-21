@@ -1,84 +1,103 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
-import Project from "./Project";
-
-import rusticdudebg from "../images/rusticdudebg.png";
-import micturbobg from "../images/micturbobg.png";
-import tracktradebg from "../images/tracktradebg.png";
-
-import reactLogo from "../images/logos/reactjslogo.png";
-import materialUIlogo from "../images/logos/materialuilogo.png";
-import reduxLogo from "../images/logos/reduxlogo.png";
-import nodeLogo from "../images/logos/nodejslogo.png";
-import mongoLogo from "../images/logos/mongodblogo.png";
-import firebaseLogo from "../images/logos/firebase.png";
-import sassLogo from "../images/logos/sasslogo.svg";
+import Flex from "./Flex";
 
 const Work = () => {
+    const Video = ({ title, src }) => {
+        return (
+            <Grid item xs={12} md={4}>
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "100%" },
+                        height: { xs: "200px", md: "350px" },
+                        ml: { xs: "0", md: "3rem" },
+                        mt: { xs: "5rem", md: "0" },
+                    }}
+                >
+                    <iframe
+                        className="youtube-video"
+                        title={title}
+                        src={src}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    ></iframe>
+                </Box>
+            </Grid>
+        );
+    };
     return (
         <section id="work" className="work">
             <h2 className="about-story-title" style={{ marginTop: "30px" }}>
                 Work
             </h2>
-            <Grid container spacing={6}>
-                <Grid item xs={12} md={4}>
-                    <Project
-                        image={rusticdudebg}
-                        title={"The Rustic Dude"}
-                        description={
-                            "A personal portfolio for a woodworking company with a hidden admin route to manage the products being displayed."
-                        }
-                        technologies={[
-                            { logo: reactLogo, name: "React JS" },
-                            { logo: materialUIlogo, name: "Material UI" },
-                            { logo: firebaseLogo, name: "Firebase" },
-                            { logo: sassLogo, name: "SASS" },
-                        ]}
-                        demo={"https://www.therusticdude.com"}
-                        code={""}
+            <Flex
+                sx={{
+                    flexDirection: "column",
+                    width: "100%",
+                    alignItems: "center",
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: { xs: "2.6rem", md: "3rem" },
+                        mb: { xs: "1rem", md: "3rem" },
+                        mt: { xs: "8rem", md: "6rem" },
+                    }}
+                >
+                    Short Films:
+                </Typography>
+                <Grid container spacing={3} justify="center">
+                    <Video
+                        title="First Kisses"
+                        src="https://www.youtube.com/embed/tt_8R1oXnrc"
+                    />
+
+                    <Video
+                        title="The Interview"
+                        src="https://www.youtube.com/embed/TLB3uWjGMUo"
                     />
                 </Grid>
-                <Grid item xs={12} md={4}>
-                    <Project
-                        image={micturbobg}
-                        title={"Mic Turbo"}
-                        description={
-                            "A custom e-commerce site for a mechanic shop with payment processing capabilities."
-                        }
-                        technologies={[
-                            { logo: reactLogo, name: "React JS" },
-                            { logo: materialUIlogo, name: "Material UI" },
-                            {
-                                logo: "https://res.cloudinary.com/practicaldev/image/fetch/s--ITpGWFxn--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/2134/d92f50cd-7ad7-48ba-9970-7abecdeb2194.png",
-                                name: "Commerce JS",
-                            },
-                            {
-                                logo: "https://stripe.com/img/v3/home/twitter.png",
-                                name: "Stripe JS",
-                            },
-                        ]}
-                        demo={"https://micturbo.netlify.app"}
-                        code={""}
+            </Flex>
+            <Flex
+                sx={{
+                    flexDirection: "column",
+                    width: "100%",
+                    alignItems: "center",
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: { xs: "2.6rem", md: "3rem" },
+                        mb: { xs: "1rem", md: "3rem" },
+                        mt: { xs: "8rem", md: "6rem" },
+                    }}
+                >
+                    Self Tapes:
+                </Typography>
+                <Grid container spacing={3} justify="center">
+                    <Video
+                        title="Donnie Brasco Self Tape"
+                        src="https://www.youtube.com/embed/LRt2toAXpYc"
+                    />
+                    <Video
+                        title="Greer Self Tape"
+                        src="https://www.youtube.com/embed/FjsVQCuyt7U"
+                    />
+                    <Video
+                        title="Wolf of Wall Street Self Tape"
+                        src="https://www.youtube.com/embed/-pVgRSZkkSc"
+                    />
+                    <Video
+                        title="Attorney Takes"
+                        src="https://www.youtube.com/embed/4z-zYP96Hw8"
+                    />
+                    <Video
+                        title="Shakespeare Comedic Monologue"
+                        src="https://www.youtube.com/embed/_vRA5EGwzP0"
                     />
                 </Grid>
-                <Grid item xs={12} md={4}>
-                    <Project
-                        image={tracktradebg}
-                        title={"Track Trade"}
-                        description={
-                            "A personal project. Social media for Foreign Exchange traders that allows users to visualize their performance using charts. "
-                        }
-                        technologies={[
-                            { logo: reactLogo, name: "React JS" },
-                            { logo: reduxLogo, name: "Redux" },
-                            { logo: nodeLogo, name: "Node JS" },
-                            { logo: mongoLogo, name: "MongoDB" },
-                        ]}
-                        demo={"https://www.tracktrade.co"}
-                        code={""}
-                    />
-                </Grid>
-            </Grid>
+            </Flex>
         </section>
     );
 };
