@@ -82,23 +82,6 @@
             }
         }
 
-        &_github {
-            &,
-            &:link,
-            &:visited {
-                color: #ddd;
-                margin-right: 2.5rem;
-
-                @include respond(phone) {
-                    margin-right: 2rem;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    color: #fff;
-                }
-            }
-        }
         &_email {
             &,
             &:link,
