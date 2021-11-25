@@ -1,44 +1,88 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import { TextField } from "@mui/material";
+import { TextField, Alert, Collapse } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { Component } from "react";
+import emailjs, { init } from "emailjs-com";
+import {
+    useFormContext,
+    Controller,
+    FormProvider,
+    useForm,
+} from "react-hook-form";
+import React, { useState, useRef } from "react";
 import Flex from "./Flex";
 
 const Contact = () => {
-    // const useStyles = makeStyles(() => ({
-    //     input: { color: "#fff" },
-    // }));
-    // const classes = useStyles();
+    const [success, setSuccess] = useState(false);
+    const methods = useForm();
+    const formRef = useRef();
 
-    const ContactInput = ({ name, label, type = "text" }) => {
+    init(process.env.REACT_APP_EMAILJS_USER_ID);
+
+    const sendEmail = (params) => {
+        emailjs
+            .sendForm(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                formRef.current
+            )
+            .then(
+                async (result) => {
+                    await setSuccess(true);
+                    setTimeout(() => {
+                        setSuccess(false);
+                    }, 3000);
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+    };
+
+    const ContactInput = ({ name, label, type = "text", ...rest }) => {
+        const { control } = useFormContext();
         return (
-            <TextField
-                // className={classes.input}
-                sx={{
-                    height: "70px",
-
-                    "& > label": { fontSize: "16px !important", color: "#fff" },
-                    "& > div": {
-                        "&:hover": {
-                            "& > fieldset": {
-                                borderColor: "#aaa !important",
-                            },
-                        },
-                    },
-                    "& > div > input": {
-                        fontSize: "18px !important",
-                        color: "#fff",
-                    },
-                    "& > div > fieldset": {
-                        borderColor: "#fff !important",
-                    },
-                }}
+            <Controller
+                control={control}
+                fullWidth
                 name={name}
-                label={label}
-                type={type}
-                margin="dense"
-                variant="outlined"
-                required
+                defaultValue=""
+                render={({ field: { onChange, value } }) => (
+                    <TextField
+                        // className={classes.input}
+                        sx={{
+                            height: "70px",
+
+                            "& > label": {
+                                fontSize: "16px !important",
+                                color: "#fff",
+                            },
+                            "& > div": {
+                                "&:hover": {
+                                    "& > fieldset": {
+                                        borderColor: "#aaa !important",
+                                    },
+                                },
+                            },
+                            "& > div > input": {
+                                fontSize: "18px !important",
+                                color: "#fff",
+                            },
+                            "& > div > fieldset": {
+                                borderColor: "#fff !important",
+                            },
+                        }}
+                        name={name}
+                        label={label}
+                        type={type}
+                        margin="dense"
+                        variant="outlined"
+                        required
+                        onChange={onChange}
+                        value={value}
+                        {...rest}
+                    />
+                )}
             />
         );
     };
@@ -53,31 +97,50 @@ const Contact = () => {
                 </p>
             </div>
 
-            <form
-                class="contact-form"
-                action="https://formspree.io/xjvojgwr"
-                method="POST"
-            >
-                <Flex
-                    sx={{
-                        flexDirection: "column",
-                        padding: "3rem 6rem",
-                        borderRadius: "0px",
-                        // backgroundColor: "#f7f7f7",
-                    }}
+            <FormProvider {...methods}>
+                <form
+                    class="contact-form"
+                    onSubmit={methods.handleSubmit((data) => {
+                        sendEmail({ ...data });
+                    })}
+                    ref={formRef}
                 >
-                    <ContactInput name="name" label="Name" />
-                    <ContactInput name="email" label="Email" type="email" />
-                    <ContactInput
-                        name="message"
-                        label="Message"
-                        type="textarea"
-                    />
-                </Flex>
-                <button class="contact-form-button" type="submit">
-                    Send email
-                </button>
-            </form>
+                    <Flex
+                        sx={{
+                            flexDirection: "column",
+                            padding: "3rem 6rem",
+                            borderRadius: "0px",
+                            // backgroundColor: "#f7f7f7",
+                        }}
+                    >
+                        <ContactInput name="name" label="Name" />
+
+                        <ContactInput name="email" label="Email" type="email" />
+
+                        <ContactInput
+                            name="message"
+                            label="Message"
+                            type="textarea"
+                        />
+                    </Flex>
+                    <button class="contact-form-button" type="submit">
+                        Send email
+                    </button>
+
+                    <Collapse in={success}>
+                        <Alert
+                            severity="success"
+                            sx={{
+                                fontSize: "2rem",
+                                alignItems: "center",
+                                mt: "4rem",
+                            }}
+                        >
+                            Email sent successfully!
+                        </Alert>
+                    </Collapse>
+                </form>
+            </FormProvider>
         </section>
     );
 };
