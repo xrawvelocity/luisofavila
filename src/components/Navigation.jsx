@@ -73,7 +73,7 @@ export const Navigation = () => {
                 className="social-links"
             >
                 <a
-                    href="https://linkedin.com/in/victor--fernandez"
+                    href="https://www.instagram.com/luisofavila/?hl=en"
                     style={{
                         color: "#ddd",
                         margin: "1rem 0",
@@ -104,7 +104,7 @@ export const Navigation = () => {
                     </Flex>
                 </a>
                 <a
-                    href="mailto:fernandezvictordev@gmail.com"
+                    href="mailto:luisfourfour@gmail.com"
                     style={{
                         color: "#ddd",
                         margin: "1rem 0",
@@ -135,15 +135,14 @@ export const Navigation = () => {
                     </Flex>
                 </a>
                 <a
-                    href="https://github.com/xrawvelocity"
+                    href="./files/LuisAvilaResume.pdf"
                     style={{
                         color: "#ddd",
                         margin: "1rem 0",
                         fontSize: "4rem",
                         textDecoration: "none",
                     }}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    download
                 >
                     <Flex
                         sx={{
