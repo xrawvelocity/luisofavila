@@ -1,0 +1,36 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 10%;
+    background-color: #fff;
+    animation: fadeIn 0.5s ease-out 0.5s;
+    animation-fill-mode: backwards;
+    overflow-y: visible !important;
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 350px);
+        justify-content: space-evenly;
+        width: 100%;
+        padding-top: 2rem;
+
+        @include respond(phone) {
+            grid-template-columns: repeat(auto-fit, 300px);
+            width: 80%;
+        }
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-15px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import moment from "moment";
-import React, { Component } from "react";
+import React from "react";
 import Flex from "./Flex";
 
 const About = () => {

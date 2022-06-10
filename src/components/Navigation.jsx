@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faFile } from "@fortawesome/free-solid-svg-icons";
 import { Box } from "@mui/system";
 import { Tooltip, Typography } from "@mui/material";
@@ -19,6 +19,9 @@ export const Navigation = () => {
                     </a>
                     <a className="landing-top-nav-link" href="#work">
                         Work
+                    </a>
+                    <a className="landing-top-nav-link" href="#gallery">
+                        Gallery
                     </a>
                     <a className="landing-top-nav-link" href="#contact">
                         Contact
