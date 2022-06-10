@@ -60,8 +60,8 @@ const About = () => {
                         the audience think and question the human condition
                         through story telling is what I'm most passionate about,
                         especially through the lenses of complex layered
-                        characters. I'm currently a senior at FIU and I've been
-                        acting since High School (2013).
+                        characters. I'm a recent graduate of FIU and I've been
+                        acting since High School.
                     </Typography>
                     <Typography>
                         <b>Age:</b> {age}
